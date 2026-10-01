@@ -1,0 +1,17 @@
+{
+  "name": "Valentina Bolaños",
+  "role": "Creadora digital",
+  "tagline": "Transformo ideas en piezas visuales que conectan y convierten.",
+  "about": "Soy creadora digital enfocada en storytelling, branding visual y estrategia de contenido. Transformo ideas en piezas visuales que conectan y convierten.",
+  "skills": [
+    "Storytelling",
+    "Web Design",
+    "Modelado 3D",
+    "Estrategia Digital"
+  ],
+  "contact": [
+    { "label": "tu-email@ejemplo.com", "url": "mailto:tu-email@ejemplo.com" },
+    { "label": "Instagram", "url": "#" },
+    { "label": "Behance", "url": "#" }
+  ]
+}

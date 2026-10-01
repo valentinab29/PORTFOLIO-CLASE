@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio de Valentina Bolaños: storytelling, web design, modelado 3D y estrategia digital.">
+  <title>Valentina Bolaños — Portafolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="brand" href="#home" data-profile="name"></a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">
+      <span class="menu-toggle-bars" aria-hidden="true"></span>
+      <span class="menu-toggle-label">Menú</span>
+    </button>
+
+    <nav class="site-menu" id="site-menu" aria-label="Principal">
+      <ul>
+        <li><a href="#home"><span class="menu-index">01</span>Home</a></li>
+        <li><a href="#about"><span class="menu-index">02</span>About</a></li>
+        <li><a href="#projects"><span class="menu-index">03</span>Projects</a></li>
+        <li><a href="#contact"><span class="menu-index">04</span>Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="menu-backdrop" hidden></div>
+
+  <main>
+
+    <!-- Los elementos con `data-profile` se llenan desde data/profile.json (ver main.js) -->
+    <p class="load-error" id="load-error" hidden></p>
+
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <p class="eyebrow" data-profile="role"></p>
+        <h1 data-profile="name"></h1>
+        <p class="hero-lead" data-profile="tagline"></p>
+        <a class="button" href="#projects">Ver proyectos</a>
+      </div>
+
+      <div class="hero-stage">
+        <!-- Se ve solo si la escena 3D no carga (sin WebGL o sin conexión) -->
+        <div class="hero-fallback" aria-hidden="true"></div>
+        <canvas id="hero-canvas" aria-hidden="true"></canvas>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <h2>Sobre mí</h2>
+      <p class="about-text" data-profile="about"></p>
+
+      <h3>Skills</h3>
+      <ul class="skills" id="skills-list"></ul>
+    </section>
+
+    <section class="section" id="projects">
+      <h2>Proyectos</h2>
+      <!-- Las tarjetas se generan desde data/projects.json -->
+      <div class="project-grid" id="project-grid"></div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Contacto</h2>
+      <p>¿Tienes un proyecto en mente? Escríbeme.</p>
+      <ul class="contact-list" id="contact-list"></ul>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 <span data-profile="name"></span> · <a href="gestion.html">Gestión</a></p>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="hero3d.js"></script>
+</body>
+</html>

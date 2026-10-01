@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión — Portafolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="admin-page">
+
+  <div class="admin-layout">
+    <!-- Cada botón muestra una vista distinta (ver showView() en gestion.js).
+         data-view debe coincidir con el id "view-<algo>" de la sección que activa. -->
+    <nav class="admin-sidebar" aria-label="Gestión">
+      <h2>Gestión</h2>
+      <ul>
+        <li><button type="button" class="admin-tab" data-view="all">Mostrar todos</button></li>
+        <li><button type="button" class="admin-tab" data-view="create">Crear</button></li>
+        <li><button type="button" class="admin-tab" data-view="search">Buscar</button></li>
+        <li><button type="button" class="admin-tab" data-view="update">Actualizar</button></li>
+        <li><button type="button" class="admin-tab" data-view="delete">Eliminar</button></li>
+      </ul>
+      <a class="admin-back" href="index.html">← Ver el sitio</a>
+    </nav>
+
+    <main class="admin-content">
+      <p class="admin-message admin-message-error" id="load-error" hidden></p>
+
+      <section id="view-all" class="admin-view">
+        <h1>Todos los proyectos</h1>
+        <div id="all-list" class="admin-list"></div>
+        <button type="button" id="reset-button" class="admin-button admin-button-danger">Restaurar desde projects.json</button>
+        <p id="reset-message" class="admin-message" hidden></p>
+      </section>
+
+      <section id="view-create" class="admin-view" hidden>
+        <h1>Crear</h1>
+        <!-- Un campo por cada propiedad de un proyecto en data/projects.json -->
+        <form id="create-form" class="admin-form">
+          <label>
+            Título
+            <input type="text" id="create-title" required>
+          </label>
+          <label>
+            Skill
+            <input type="text" id="create-skill" placeholder="Ej: Web Design" required>
+          </label>
+          <label>
+            Descripción
+            <textarea id="create-description" rows="3" required></textarea>
+          </label>
+          <label>
+            Imagen (ruta o URL, opcional)
+            <input type="text" id="create-image" placeholder="Ej: img/proyecto-1.jpg">
+          </label>
+          <label>
+            Link del proyecto (opcional)
+            <input type="text" id="create-url" placeholder="https://...">
+          </label>
+          <button type="submit" class="admin-button">Agregar</button>
+        </form>
+        <p id="create-message" class="admin-message" hidden></p>
+      </section>
+
+      <section id="view-search" class="admin-view" hidden>
+        <h1>Buscar</h1>
+        <label class="admin-picker">
+          Título o skill
+          <input type="search" id="search-text" placeholder="Ej: modelado" autocomplete="off">
+        </label>
+        <div id="search-results" class="admin-list"></div>
+        <p id="search-message" class="admin-message" hidden></p>
+      </section>
+
+      <section id="view-update" class="admin-view" hidden>
+        <h1>Actualizar</h1>
+        <label class="admin-picker">
+          Elige un proyecto para editar
+          <select id="update-select"></select>
+        </label>
+
+        <form id="update-form" class="admin-form" hidden>
+          <label>
+            Título
+            <input type="text" id="update-title" required>
+          </label>
+          <label>
+            Skill
+            <input type="text" id="update-skill" required>
+          </label>
+          <label>
+            Descripción
+            <textarea id="update-description" rows="3" required></textarea>
+          </label>
+          <label>
+            Imagen (ruta o URL, opcional)
+            <input type="text" id="update-image">
+          </label>
+          <label>
+            Link del proyecto (opcional)
+            <input type="text" id="update-url">
+          </label>
+          <button type="submit" class="admin-button">Guardar cambios</button>
+        </form>
+        <p id="update-message" class="admin-message" hidden></p>
+      </section>
+
+      <section id="view-delete" class="admin-view" hidden>
+        <h1>Eliminar</h1>
+        <label class="admin-picker">
+          Elige un proyecto para eliminar
+          <select id="delete-select"></select>
+        </label>
+        <button type="button" id="delete-button" class="admin-button admin-button-danger">Eliminar</button>
+        <p id="delete-message" class="admin-message" hidden></p>
+      </section>
+    </main>
+  </div>
+
+  <script src="gestion.js"></script>
+</body>
+</html>

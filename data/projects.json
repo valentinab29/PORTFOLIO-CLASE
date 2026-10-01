@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "title": "Proyecto 01",
+    "skill": "Storytelling",
+    "description": "Descripción corta del proyecto.",
+    "image": "",
+    "url": "#"
+  },
+  {
+    "id": 2,
+    "title": "Proyecto 02",
+    "skill": "Web Design",
+    "description": "Descripción corta del proyecto.",
+    "image": "",
+    "url": "#"
+  },
+  {
+    "id": 3,
+    "title": "Proyecto 03",
+    "skill": "Modelado 3D",
+    "description": "Descripción corta del proyecto.",
+    "image": "",
+    "url": "#"
+  },
+  {
+    "id": 4,
+    "title": "Proyecto 04",
+    "skill": "Estrategia Digital",
+    "description": "Descripción corta del proyecto.",
+    "image": "",
+    "url": "#"
+  }
+]
