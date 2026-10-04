@@ -1,13 +1,23 @@
 /* ---------- Tokens ---------- */
 :root {
-  --color-bg: #fff4e0;
-  --color-surface: #ffffff;
-  --color-ink: #2b2140;
-  --color-muted: #6b6280;
-  --color-primary: #ff7a3d;
-  --color-teal: #19b5a5;
-  --color-yellow: #ffc83d;
-  --color-pink: #ff5d8f;
+  /* Tema noche: fondo morado oscuro, texto y bordes lavanda claro */
+  --color-bg: #120a24;
+  --color-surface: #24163f;
+  --color-ink: #f1e8ff;
+  --color-muted: #b9a8d9;
+  --color-primary: #b57bff;
+  --color-violet: #8f5cff;
+  --color-lilac: #d9b8ff;
+  --color-orchid: #e07bff;
+  /* Texto sobre fondos de acento (botones, chips): oscuro para que se lea */
+  --color-on-accent: #1a0f2e;
+  --color-shadow: #6b3fd1;
+
+  /* Estrellas de 5 puntas en SVG. Son dos mosaicos de tamaños distintos (240px y 370px):
+     al superponerse, el patrón tarda mucho en repetirse y parece aleatorio.
+     En un data URI el "#" se escribe "%23". */
+  --stars-small: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cdefs%3E%3Cpolygon id='s' points='12,1 14.9,8.6 23,8.9 16.6,13.9 18.9,21.8 12,17.3 5.1,21.8 7.4,13.9 1,8.9 9.1,8.6'/%3E%3C/defs%3E%3Cg fill='%23c9a2ff'%3E%3Cuse href='%23s' transform='translate(20 30) scale(.6)' opacity='.9'/%3E%3Cuse href='%23s' transform='translate(150 15) scale(.35)' opacity='.6'/%3E%3Cuse href='%23s' transform='translate(95 110) scale(.9)' opacity='.75'/%3E%3Cuse href='%23s' transform='translate(200 160) scale(.45)' opacity='.8'/%3E%3Cuse href='%23s' transform='translate(40 190) scale(.3)' opacity='.5'/%3E%3Cuse href='%23s' transform='translate(170 90) scale(.25)' opacity='.5'/%3E%3C/g%3E%3C/svg%3E");
+  --stars-large: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='370' height='370'%3E%3Cdefs%3E%3Cpolygon id='s' points='12,1 14.9,8.6 23,8.9 16.6,13.9 18.9,21.8 12,17.3 5.1,21.8 7.4,13.9 1,8.9 9.1,8.6'/%3E%3C/defs%3E%3Cg fill='%23a66bff'%3E%3Cuse href='%23s' transform='translate(60 70) scale(.4)' opacity='.55'/%3E%3Cuse href='%23s' transform='translate(260 40) scale(.7)' opacity='.6'/%3E%3Cuse href='%23s' transform='translate(180 220) scale(.3)' opacity='.45'/%3E%3Cuse href='%23s' transform='translate(320 300) scale(.5)' opacity='.5'/%3E%3Cuse href='%23s' transform='translate(90 310) scale(.8)' opacity='.35'/%3E%3Cuse href='%23s' transform='translate(300 160) scale(.25)' opacity='.6'/%3E%3C/g%3E%3C/svg%3E");
 
   --font-title: "Amatic SC", "Comic Sans MS", cursive;
   --font-body: "Nunito", system-ui, sans-serif;
@@ -36,7 +46,16 @@ body {
   font-size: 1.05rem;
   line-height: 1.6;
   color: var(--color-ink);
-  background: var(--color-bg);
+  background-color: var(--color-bg);
+  /* Capas de arriba hacia abajo: estrellas pequeñas, estrellas grandes, dos brillos de color */
+  background-image:
+    var(--stars-small),
+    var(--stars-large),
+    radial-gradient(ellipse at 85% 0%, rgb(143 92 255 / 0.28), transparent 60%),
+    radial-gradient(ellipse at 0% 100%, rgb(224 123 255 / 0.16), transparent 55%);
+  background-size: 240px 240px, 370px 370px, 100% 100%, 100% 100%;
+  /* `fixed`: el cielo se queda quieto y el contenido se desliza encima */
+  background-attachment: fixed;
 }
 
 h1,
@@ -57,7 +76,7 @@ a {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid var(--color-pink);
+  outline: 3px solid var(--color-orchid);
   outline-offset: 3px;
 }
 
@@ -89,8 +108,8 @@ button:focus-visible {
   font: 800 0.9rem var(--font-body);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-ink);
-  background: var(--color-yellow);
+  color: var(--color-on-accent);
+  background: var(--color-lilac);
   border: 3px solid var(--color-ink);
   border-radius: 999px;
   cursor: pointer;
@@ -101,7 +120,7 @@ button:focus-visible {
   display: block;
   width: 18px;
   height: 3px;
-  background: var(--color-ink);
+  background: var(--color-on-accent);
   border-radius: 2px;
 }
 
@@ -155,14 +174,14 @@ button:focus-visible {
 
 .menu-index {
   font: 800 0.75rem var(--font-body);
-  color: var(--color-teal);
+  color: var(--color-violet);
 }
 
 .menu-backdrop {
   position: fixed;
   inset: 0;
   z-index: 10;
-  background: rgb(43 33 64 / 0.55);
+  background: rgb(10 5 25 / 0.7);
 }
 
 .load-error {
@@ -174,7 +193,8 @@ button:focus-visible {
   margin: 0;
   padding: 12px 20px;
   font-weight: 800;
-  background: var(--color-pink);
+  color: var(--color-on-accent);
+  background: var(--color-orchid);
   border: 3px solid var(--color-ink);
   border-radius: var(--radius);
 }
@@ -194,7 +214,7 @@ button:focus-visible {
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--color-teal);
+  color: var(--color-violet);
 }
 
 .hero-lead {
@@ -208,17 +228,17 @@ button:focus-visible {
   padding: 12px 28px;
   font-weight: 800;
   text-decoration: none;
-  color: var(--color-ink);
+  color: var(--color-on-accent);
   background: var(--color-primary);
   border: 3px solid var(--color-ink);
   border-radius: 999px;
-  box-shadow: 4px 4px 0 var(--color-ink);
+  box-shadow: 4px 4px 0 var(--color-shadow);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .button:hover {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0 var(--color-ink);
+  box-shadow: 2px 2px 0 var(--color-shadow);
 }
 
 .hero-stage {
@@ -240,8 +260,9 @@ button:focus-visible {
 .hero-fallback {
   position: absolute;
   inset: 15%;
-  background: conic-gradient(from 40deg, var(--color-primary), var(--color-yellow), var(--color-teal), var(--color-pink), var(--color-primary));
-  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  background: conic-gradient(from 40deg, var(--color-primary), var(--color-lilac), var(--color-violet), var(--color-orchid), var(--color-primary));
+  /* Estrella de 5 puntas: 10 vértices alternando punta y hueco */
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
 /* hero3d.js agrega esta clase cuando la escena ya está dibujando */
@@ -272,14 +293,15 @@ button:focus-visible {
 .skills li {
   padding: 8px 20px;
   font-weight: 800;
+  color: var(--color-on-accent);
   background: var(--color-surface);
   border: 3px solid var(--color-ink);
   border-radius: 999px;
 }
 
-.skills li:nth-child(4n + 1) { background: var(--color-yellow); }
-.skills li:nth-child(4n + 2) { background: var(--color-teal); }
-.skills li:nth-child(4n + 3) { background: var(--color-pink); }
+.skills li:nth-child(4n + 1) { background: var(--color-lilac); }
+.skills li:nth-child(4n + 2) { background: var(--color-violet); }
+.skills li:nth-child(4n + 3) { background: var(--color-orchid); }
 .skills li:nth-child(4n + 4) { background: var(--color-primary); }
 
 /* ---------- Projects ---------- */
@@ -301,12 +323,12 @@ button:focus-visible {
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 6px 6px 0 var(--color-ink);
+  box-shadow: 6px 6px 0 var(--color-shadow);
 }
 
 .project-thumb {
   aspect-ratio: 4 / 3;
-  background: var(--color-teal);
+  background: var(--color-violet);
   border-bottom: 3px solid var(--color-ink);
 }
 
@@ -436,7 +458,8 @@ button:focus-visible {
 }
 
 .admin-tab.is-active {
-  background: var(--color-yellow);
+  color: var(--color-on-accent);
+  background: var(--color-lilac);
   border-color: var(--color-ink);
 }
 
@@ -502,28 +525,29 @@ button:focus-visible {
   justify-self: start;
   padding: 10px 24px;
   font: 800 1rem var(--font-body);
-  color: var(--color-ink);
-  background: var(--color-teal);
+  color: var(--color-on-accent);
+  background: var(--color-violet);
   border: 3px solid var(--color-ink);
   border-radius: 999px;
   cursor: pointer;
 }
 
 .admin-button-danger {
-  background: var(--color-pink);
+  background: var(--color-orchid);
 }
 
 .admin-message {
   margin: 16px 0 0;
   padding: 10px 16px;
   font-weight: 800;
-  background: var(--color-yellow);
+  color: var(--color-on-accent);
+  background: var(--color-lilac);
   border: 3px solid var(--color-ink);
   border-radius: 12px;
 }
 
 .admin-message-error {
-  background: var(--color-pink);
+  background: var(--color-orchid);
 }
 
 @media (max-width: 760px) {

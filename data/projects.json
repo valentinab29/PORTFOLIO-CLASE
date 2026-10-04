@@ -1,34 +1,50 @@
 [
   {
     "id": 1,
-    "title": "Proyecto 01",
-    "skill": "Storytelling",
-    "description": "Descripción corta del proyecto.",
-    "image": "",
-    "url": "#"
+    "title": "KidVault",
+    "skill": "Web Design",
+    "description": "🏆 3.er lugar nacional en la hackatón de GlobalSeguros. Propuesta en equipo para su seguro educativo: acompaña a madres y padres en cuatro pasos (explorar, personalizar, ahorrar, disfrutar) para planear la educación de sus hijos, con una estrella como guía.",
+    "image": "img/kidvault.png",
+    "url": "https://valentinab29.github.io/KidVault/"
   },
   {
     "id": 2,
-    "title": "Proyecto 02",
-    "skill": "Web Design",
-    "description": "Descripción corta del proyecto.",
-    "image": "",
-    "url": "#"
+    "title": "Luma",
+    "skill": "Modelado 3D",
+    "description": "La estrella guía de KidVault: personaje luminoso modelado y animado en Blender, renderizado en Cycles. Parte del proyecto de la hackatón de GlobalSeguros.",
+    "image": "img/luma.jpg",
+    "url": "https://valentinab29.github.io/KidVault/"
   },
   {
     "id": 3,
-    "title": "Proyecto 03",
+    "title": "Money",
     "skill": "Modelado 3D",
-    "description": "Descripción corta del proyecto.",
-    "image": "",
-    "url": "#"
+    "description": "Billetera animada para KidVault que se va llenando de billetes para ilustrar el ahorro. Modelada y animada en Blender.",
+    "image": "img/money.jpg",
+    "url": "https://valentinab29.github.io/KidVault/"
   },
   {
     "id": 4,
-    "title": "Proyecto 04",
-    "skill": "Estrategia Digital",
-    "description": "Descripción corta del proyecto.",
-    "image": "",
-    "url": "#"
+    "title": "Books",
+    "skill": "Modelado 3D",
+    "description": "Pila de libros animada para KidVault que representa el futuro educativo de los hijos. Modelada y animada en Blender.",
+    "image": "img/books.jpg",
+    "url": "https://valentinab29.github.io/KidVault/"
+  },
+  {
+    "id": 5,
+    "title": "Pista de obstáculos",
+    "skill": "Modelado 3D",
+    "description": "Tarea de animación: una bola recorre rampas y aros hasta el final de la pista, con un rig de squash & stretch para los rebotes. Hecha en Blender.",
+    "image": "img/ball-obstacles.jpg",
+    "url": "img/ball-obstacles.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Olla",
+    "skill": "Modelado 3D",
+    "description": "Tarea de modelado: olla con tapa y asas, modelada en Blender.",
+    "image": "img/pot.jpg",
+    "url": "img/pot.jpg"
   }
 ]

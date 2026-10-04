@@ -42,7 +42,7 @@ function renderProfile(profile) {
 
 // ---------- Projects ----------
 // `image` es la ruta a la imagen (ej. "img/proyecto-1.jpg"); si queda vacía se ve un bloque de color.
-const thumbColors = ["var(--color-teal)", "var(--color-yellow)", "var(--color-pink)", "var(--color-primary)"];
+const thumbColors = ["var(--color-violet)", "var(--color-lilac)", "var(--color-orchid)", "var(--color-primary)"];
 
 function createProjectCard(project, index) {
   const card = document.createElement("article");
